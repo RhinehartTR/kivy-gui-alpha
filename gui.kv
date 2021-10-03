@@ -1,0 +1,58 @@
+<MyLayout>:
+    BoxLayout:
+        spacing: 10
+        padding: 10,10,10,0
+        orientation: "horizontal"
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 0.3,1
+            canvas:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            AsyncImage
+                source: 'https://upload.wikimedia.org/wikipedia/tr/e/e7/K%C4%B1rklareli_%C3%9Cniversitesi_logosu.jpg'
+            Label:
+                size_hint: 1,0.3
+                text: root.your_time
+                color: [0,0,0,1]
+            Label:
+                size_hint: 1,0.3
+                text: "Kırklareli Üniversitesi"
+                color: [0,0,0,1]
+
+        Button:
+            text: ""
+
+    BoxLayout:
+        padding: 10,10,10,0
+        spacing: 10
+        size_hint: 1,0.3
+        orientation: "horizontal"
+        Button:
+            text: "Batarya Durumu"
+            on_press:
+                root.manager.transition.direction = 'up'
+                root.manager.current = 'batarya'
+        Button:
+            text: "Silecek"
+        Button:
+            text: "Far"
+        Button:
+            text: "Harita"
+        Button:
+            text: "Hata Kontrol"
+
+    BoxLayout:
+        padding: 10,10,10,10
+        size_hint: 1,0.3
+        Button:
+            text: "Motor ve Kontak"
+
+<BataryaScreen>
+    BoxLayout:
+        Button:
+            text: "Geri Don"
+            on_press:
+                root.manager.transition.direction = 'down'
+                root.manager.current = 'MyLayout'
